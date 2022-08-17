@@ -30,7 +30,8 @@
 
 
 ### 4. Add your item textures to the folder inside of assets that matches your area. Once you've added them, commit your changes and push to origin.
-   For anything that isn't item textures, contact the organisers.
+   Texture names need to include custom model data and item id. For anything that isn't item textures, contact the organisers.
+   
 
 ![image](https://user-images.githubusercontent.com/40923191/181112992-4f065123-d0bf-4af1-84fa-3b445ad8474e.png)
 
