@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "n:a",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "n:a"
+    },
+    "facing=south": {
+      "model": "n:a",
+      "x": 90
+    },
+    "facing=west": {
+      "model": "n:a",
+      "y": 270
+    }
+  }
+}

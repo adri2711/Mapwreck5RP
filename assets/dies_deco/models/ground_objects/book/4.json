@@ -1,0 +1,29 @@
+{
+	"texture_size": [32, 32],
+	"textures": {
+		"1": "dies_deco:ground_objects/book/2",
+		"particle": "dies_deco:ground_objects/book/2"
+	},
+	"elements": [
+		{
+			"from": [1.95, 0, 3],
+			"to": [7.95, 2, 12],
+			"rotation": {"angle": 0, "axis": "x", "origin": [0, 0, 1]},
+			"faces": {
+				"north": {"uv": [0, 6.25, 3, 7.25], "texture": "#1"},
+				"east": {"uv": [0, 4.75, 4.5, 5.75], "texture": "#1"},
+				"south": {"uv": [3, 6.25, 6, 7.25], "texture": "#1"},
+				"west": {"uv": [4.5, 4.75, 9, 5.75], "texture": "#1"},
+				"up": {"uv": [3, 4.5, 0, 0], "texture": "#1"},
+				"down": {"uv": [6, 0, 3, 4.5], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"fixed": {
+			"rotation": [-90, 0, 0],
+			"translation": [0.25, 1.5, -16],
+			"scale": [2, 2, 2]
+		}
+	}
+}

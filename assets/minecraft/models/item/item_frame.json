@@ -1,0 +1,25 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "item/item_frame"
+    },
+	"overrides": [
+		{"predicate": {"custom_model_data": 68001}, "model": "dies_deco:ground_objects/book/1"},
+		{"predicate": {"custom_model_data": 68002}, "model": "dies_deco:ground_objects/book/2"},
+		{"predicate": {"custom_model_data": 68003}, "model": "dies_deco:ground_objects/book/3"},
+		{"predicate": {"custom_model_data": 68004}, "model": "dies_deco:ground_objects/book/4"},
+		{"predicate": {"custom_model_data": 68011}, "model": "dies_deco:ground_objects/paper/1"},
+		{"predicate": {"custom_model_data": 68012}, "model": "dies_deco:ground_objects/paper/2"},
+		{"predicate": {"custom_model_data": 68021}, "model": "dies_deco:ground_objects/inkwell/1"},
+		{"predicate": {"custom_model_data": 68031}, "model": "dies_deco:ground_objects/globe/1"},
+		{"predicate": {"custom_model_data": 68041}, "model": "dies_deco:ground_objects/skull/1"},
+		{"predicate": {"custom_model_data": 68042}, "model": "dies_deco:ground_objects/skull/2"},
+		{"predicate": {"custom_model_data": 68043}, "model": "dies_deco:ground_objects/skull/3"},
+		{"predicate": {"custom_model_data": 68101}, "model": "dies_deco:item_textures/book"},
+		{"predicate": {"custom_model_data": 68102}, "model": "dies_deco:item_textures/paper"},
+		{"predicate": {"custom_model_data": 68103}, "model": "dies_deco:item_textures/inkwell"},
+		{"predicate": {"custom_model_data": 68104}, "model": "dies_deco:item_textures/globe"},
+		{"predicate": {"custom_model_data": 68105}, "model": "dies_deco:item_textures/skull"},
+		{"predicate": {"custom_model_data": 2147483647}, "model": "end:dummy/foo_bar"}
+	]
+}

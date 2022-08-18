@@ -1,0 +1,19 @@
+(DONT DELETE THIS FILE)
+
+# Contributing to the Resourcepack
+
+1. Get added to the repo - include your GitHub account in the signup or message @Asometric#2711.
+
+2. Clone the repo (If you're here you probably already did this!)
+
+3. Before modifying anything, make a new branch (In Github Desktop: Branch > New Branch) and name it after your team.
+
+4. Add your item textures to the folder inside of assets that matches your area. (For example, area 5 textures would go in Mapwreck5/assets/area_5/textures). You can ignore the models file.
+For anything that isn't item textures, contact RockNRed#0001. Once you've added them, commit your changes and push to origin.
+
+Please follow this custom model data naming convention:
+Custom Model Data will have the following format: AAXXX where X = Item Number and A = Area number. Item texture 14 of area 3 will have custom model data 3014 and texture 8 of area 12 12008. Leading 0s such as in 03 need to be removed.
+
+!!! IMPORTANT !!! Texture names must include id and custom model data of the item. For example iron_pickaxe_3014 or stick_12008.
+
+5. To submit your changes, create a pull request (Branch > Create Pull Request). A browser tab will open for it. Once you've created it, an organiser will review it and add it into the main branch of the pack.
