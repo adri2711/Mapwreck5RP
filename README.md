@@ -10,6 +10,9 @@
 ### 2. Clone the repository to your .minecraft\resourcepacks folder: Code > Open with Github Desktop > Clone
    IMPORTANT: the repository path should be .minecraft\resourcepacks\Mapwreck5RP (make sure there isn't an additional folder)
 
+![image](https://user-images.githubusercontent.com/40923191/185395247-48641baf-d52f-4657-813e-d4dad62e5c30.png)
+
+
 ### 3. Once you've successfully cloned the repository, you can normally apply the resourcepack from Minecraft.
    To update it as people add things, click on fetch origin and press f3 + T.
 
