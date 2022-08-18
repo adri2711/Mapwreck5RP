@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/glass",
+	"overrides":[
+		{ "predicate":{ "custom_model_data": 11001 }, "model":"area_11:mist_halo" }
+	]
+ }
