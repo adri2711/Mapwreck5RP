@@ -1,16 +1,15 @@
 {
   "variants": {
     "facing=east": {
-      "model": "n:a",
-      "x": 90,
+      "model": "area_11:blocks/mistrock",
       "y": 90
     },
     "facing=north": {
-      "model": "n:a"
+      "model": "area_11:blocks/overgrown_mistrock"
     },
     "facing=south": {
       "model": "n:a",
-      "x": 90
+      "y": 180
     },
     "facing=west": {
       "model": "n:a",
