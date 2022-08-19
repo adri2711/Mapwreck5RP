@@ -8,8 +8,7 @@
       "model": "area_11:blocks/overgrown_mistrock"
     },
     "facing=south": {
-      "model": "n:a",
-      "y": 180
+      "model": "area_11:blocks/hushmetal_block"
     },
     "facing=west": {
       "model": "n:a",
