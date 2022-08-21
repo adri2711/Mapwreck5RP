@@ -10,6 +10,7 @@ in vec2 UV0;
 in ivec2 UV2;
 in vec3 Normal;
 
+uniform sampler2D Sampler0;
 uniform sampler2D Sampler2;
 
 uniform mat4 ModelViewMat;
@@ -42,16 +43,19 @@ void main() {
     vertexColor = Color * minecraft_sample_lightmap(Sampler2, UV2);
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
-    
-    muddy = int(distance(Color.rgb, vec3(73,50,8)/255.0) < 0.01 || distance(Color.rgb, vec3(43,30,4)/255.0) < 0.01 || distance(Color.rgb, vec3(58,40,6)/255.0) < 0.01);
+
+    bool water = distance(Color, vec4(1.0)) > 0.05 && distance(Color, vec4(0.8, 0.8, 0.8, 1.0)) > 0.05 && distance(Color, vec4(0.6, 0.6, 0.6, 1.0)) > 0.05;
+    muddy = int(water && distance(Color.rgb, vec3(73,50,8)/255.0) < 0.01 || distance(Color.rgb, vec3(43,30,4)/255.0) < 0.01 || distance(Color.rgb, vec3(58,40,6)/255.0) < 0.01);
     BPos = Position;
     CPos = ChunkOffset;
 
-    float x_dist = min(distance(BPos.z, 0.0), distance(BPos.z, 16.0)) / 8.0;
-    float z_dist = min(distance(BPos.x, 0.0), distance(BPos.x, 16.0)) / 8.0;
+    if(water) {
+        float x_dist = min(distance(BPos.z, 0.0), distance(BPos.z, 16.0)) / 8.0;
+        float z_dist = min(distance(BPos.x, 0.0), distance(BPos.x, 16.0)) / 8.0;
 
-    float water_noise = waterNoise(BPos.xz);
-    water_noise = water_noise * x_dist * z_dist;
+        float water_noise = waterNoise(BPos.xz);
+        water_noise = water_noise * x_dist * z_dist;
 
-    gl_Position.y += water_noise * 0.15;
+        gl_Position.y += water_noise * 0.15;
+    }
 }
