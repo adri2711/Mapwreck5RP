@@ -2,6 +2,7 @@
 
 #moj_import <fog.glsl>
 #moj_import <misc.glsl>
+#moj_import <gpu_noise_lib.glsl>
 
 uniform vec4 ColorModulator;
 uniform float FogStart;
@@ -37,7 +38,7 @@ void main() {
     vec4 cast_pos = normalize(inverse(ProjMat) * vec4((gl_FragCoord.xy / ScreenSize - 0.5) * 2.0, 1.0, 1.0));
 
     vec3 v = normalize(cast_pos.xyz * mat3(ModelViewMat));
-    v -= sin(GameTime * 60.0) * vec3(pnoise(v * 4.0)) * 0.5;
+    v -= sin(GameTime * 60.0) * vec3((SimplexPerlin3D(v * 2.5) + 1.0) / 2.0) * 0.5;
 
     fragColor = vec4(warp(v), 1.0);
 }
