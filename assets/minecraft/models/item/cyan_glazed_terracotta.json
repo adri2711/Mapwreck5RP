@@ -4,6 +4,7 @@
         {"predicate":{"custom_model_data":11002},"model":"area_11:blocks/mistrock"},
 		{"predicate":{"custom_model_data":11003},"model":"area_11:blocks/overgrown_mistrock"},
 		{"predicate":{"custom_model_data":11004},"model":"area_11:blocks/hushmetal_block"},
+		{"predicate":{"custom_model_data":11005},"model":"area_11:blocks/imprisoned_soul_mass"},
 		{"predicate": {"custom_model_data": 2147483647}, "model": "end:dummy/foo_bar"}
     ]
 }

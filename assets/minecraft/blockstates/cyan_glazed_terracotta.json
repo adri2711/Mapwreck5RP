@@ -11,8 +11,7 @@
       "model": "area_11:blocks/hushmetal_block"
     },
     "facing=west": {
-      "model": "n:a",
-      "y": 270
+      "model": "area_11:blocks/soulk"
     }
   }
 }
