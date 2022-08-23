@@ -1,0 +1,6 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "cooley:diamond_shovel_99005"
+	}
+}
