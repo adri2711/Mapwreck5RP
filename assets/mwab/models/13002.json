@@ -1,0 +1,6 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "mwab:carrot_on_a_stick_13002"
+	}
+}
