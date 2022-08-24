@@ -5,6 +5,7 @@
 	},
 	"overrides":[
 		{ "predicate":{ "custom_model_data": 13001 }, "model":"mwab:13001" },
+		{ "predicate":{ "custom_model_data": 13002 }, "model":"mwab:13002" },
 		{ "predicate":{ "custom_model_data": 99001 }, "model":"cooley:99001" },
 		{ "predicate":{ "custom_model_data": 99003 }, "model":"cooley:99003" }
 	]
