@@ -45,7 +45,7 @@ void main() {
             lava = mix(lava, do_the_lava(fragColor.rgb, vec3(0.0, 0.0, 16.0)), 1.0 - BPos.z / 1.5);
         }
 
-        lava.rgb += Hermite3D(vec3((BPos + CPos).xz * 0.01, GameTime * 100.0)) * 0.5;
+        lava.rgb += Hermite3D(vec3((BPos + CPos).xz * 0.01, GameTime * 100.0)) * 0.4 + 0.1;
 
         fragColor.rgb = lava;
     }
