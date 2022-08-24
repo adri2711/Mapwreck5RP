@@ -23,7 +23,7 @@ out float vertexDistance;
 out vec4 vertexColor;
 out vec2 texCoord0;
 out vec4 normal;
-flat out int muddy;
+flat out int customID;
 out vec3 BPos;
 out vec3 CPos;
 
@@ -43,19 +43,21 @@ void main() {
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
 
-    bool water = distance(Color, vec4(1.0)) > 0.05 && distance(Color, vec4(0.8, 0.8, 0.8, 1.0)) > 0.05 && distance(Color, vec4(0.6, 0.6, 0.6, 1.0)) > 0.05;
-    muddy = int(water && distance(Color.rgb, vec3(73,50,8)/255.0) < 0.01 || distance(Color.rgb, vec3(43,30,4)/255.0) < 0.01 || distance(Color.rgb, vec3(58,40,6)/255.0) < 0.01);
     BPos = Position;
     CPos = ChunkOffset;
 
-    if(water) {
+    customID = 0;
+    int a = int(texture(Sampler0, texCoord0).a * 255);
+    if(a == 243) {
+        customID = 1;
+
         float x_dist = min(distance(BPos.z, 0.0), distance(BPos.z, 16.0)) / 8.0;
         float z_dist = min(distance(BPos.x, 0.0), distance(BPos.x, 16.0)) / 8.0;
 
         float water_noise = waterNoise(BPos.xz);
         water_noise = water_noise * x_dist * z_dist;
 
-        pos.y += water_noise * 0.15;
+        pos.y += water_noise * 0.25 - 0.1;
     }
 
     gl_Position = ProjMat * ModelViewMat * vec4(pos, 1.0);
