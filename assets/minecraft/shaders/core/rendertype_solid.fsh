@@ -19,6 +19,7 @@ in vec4 normal;
 flat in int customID;
 in vec3 BPos;
 in vec3 CPos;
+noperspective in vec3 customPos;
 
 out vec4 fragColor;
 
@@ -34,7 +35,7 @@ vec3 do_the_lava(vec3 base, vec3 offset) {
 
 void main() {
     vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
-    fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
+    fragColor = linear_fog_solid(color, vertexDistance, FogStart, FogEnd, FogColor, customPos, GameTime);
     
     if(customID == 1) {
         vec3 lava = do_the_lava(fragColor.rgb, vec3(0.0));
