@@ -43,7 +43,7 @@ void main() {
     texCoord0 = UV0;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
 
-    bool water = distance(Color, vec4(1.0)) > 0.05 && distance(Color, vec4(0.8, 0.8, 0.8, 1.0)) > 0.05 && distance(Color, vec4(0.6, 0.6, 0.6, 1.0)) > 0.05;
+    bool water = distance(Color, vec4(1.0)) > 0.05 && distance(Color, vec4(0.8, 0.8, 0.8, 1.0)) > 0.05 && distance(Color, vec4(0.6, 0.6, 0.6, 1.0)) > 0.05 && distance(Color, vec4(0.5, 0.5, 0.5, 1.0)) > 0.05;
     muddy = int(water && distance(Color.rgb, vec3(73,50,8)/255.0) < 0.01 || distance(Color.rgb, vec3(43,30,4)/255.0) < 0.01 || distance(Color.rgb, vec3(58,40,6)/255.0) < 0.01);
     BPos = Position;
     CPos = ChunkOffset;
