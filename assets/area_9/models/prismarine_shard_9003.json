@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "area_9:prismarine_shard_9003"
+    }
+}
