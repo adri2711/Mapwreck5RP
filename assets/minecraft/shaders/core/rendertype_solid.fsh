@@ -35,15 +35,26 @@ vec3 do_the_lava(vec3 base, vec3 offset) {
 void main() {
     vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
-
+    
     if(customID == 1) {
         vec3 lava = do_the_lava(fragColor.rgb, vec3(0.0));
         if(BPos.x < 1.5) {
-            lava = mix(lava, do_the_lava(fragColor.rgb, vec3(16.0, 0.0, 0.0)), 1.0 - BPos.x / 1.5);
-        }
-        if(BPos.z < 1.5) {
-            lava = mix(lava, do_the_lava(fragColor.rgb, vec3(0.0, 0.0, 16.0)), 1.0 - BPos.z / 1.5);
-        }
+            if(BPos.z < 1.5) {
+                float xfade = BPos.x / 1.5;
+                float zfade = BPos.z / 1.5;
+
+                vec3 xlava = do_the_lava(fragColor.rgb, vec3(16.0, 0.0, 0.0));
+                vec3 zlava = do_the_lava(fragColor.rgb, vec3(0.0, 0.0, 16.0));
+                vec3 xzlava = do_the_lava(fragColor.rgb, vec3(16.0, 0.0, 16.0));
+
+                vec3 no_z = mix(xlava, lava, xfade);
+                vec3 yesz = mix(xzlava, zlava, xfade);
+
+                lava = mix(yesz, no_z, zfade);
+            }
+            else lava = mix(do_the_lava(fragColor.rgb, vec3(16.0, 0.0, 0.0)), lava, BPos.x / 1.5);
+        } 
+        else if(BPos.z < 1.5) lava = mix(do_the_lava(fragColor.rgb, vec3(0.0, 0.0, 16.0)), lava, BPos.z / 1.5);
 
         lava.rgb += Hermite3D(vec3((BPos + CPos).xz * 0.01, GameTime * 100.0)) * 0.4 + 0.1;
 
