@@ -1,19 +1,19 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "item/bow"
+        "layer0": "item/crossbow_standby"
     },
     "display": {
         "thirdperson_righthand": {
             "rotation": [
-                -80,
-                260,
-                -40
+                -90,
+                0,
+                -60
             ],
             "translation": [
-                -1,
-                -2,
-                2.5
+                2,
+                0.1,
+                -3
             ],
             "scale": [
                 0.9,
@@ -23,14 +23,14 @@
         },
         "thirdperson_lefthand": {
             "rotation": [
-                -80,
-                -280,
-                40
+                -90,
+                0,
+                30
             ],
             "translation": [
-                -1,
-                -2,
-                2.5
+                2,
+                0.1,
+                -3
             ],
             "scale": [
                 0.9,
@@ -40,9 +40,9 @@
         },
         "firstperson_righthand": {
             "rotation": [
-                0,
                 -90,
-                25
+                0,
+                -55
             ],
             "translation": [
                 1.13,
@@ -57,9 +57,9 @@
         },
         "firstperson_lefthand": {
             "rotation": [
+                -90,
                 0,
-                90,
-                -25
+                35
             ],
             "translation": [
                 1.13,
@@ -76,59 +76,81 @@
     "overrides": [
         {
             "predicate": {
-                "pulling": 0
-            },
-            "model": "item/bow"
-        },
-        {
-            "predicate": {
                 "pulling": 1
             },
-            "model": "item/bow_pulling_0"
+            "model": "item/crossbow_pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
-                "pull": 0.65
+                "pull": 0.58
             },
-            "model": "item/bow_pulling_1"
+            "model": "item/crossbow_pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
-                "pull": 0.9
+                "pull": 1.0
             },
-            "model": "item/bow_pulling_2"
+            "model": "item/crossbow_pulling_2"
+        },
+        {
+            "predicate": {
+                "charged": 1
+            },
+            "model": "item/crossbow_arrow"
+        },
+        {
+            "predicate": {
+                "charged": 1,
+                "firework": 1
+            },
+            "model": "item/crossbow_firework"
         },
         {
             "predicate": {
                 "pulling": 0,
-                "custom_model_data": 9005
+                "custom_model_data": 9006
             },
-            "model": "area_9:bow_9005/standby"
+            "model": "area_9:crossbow_9006/standby"
         },
         {
             "predicate": {
                 "pulling": 1,
-                "custom_model_data": 9005
+                "custom_model_data": 9006
             },
-            "model": "area_9:bow_9005/pulling_0"
+            "model": "area_9:crossbow_9006/pulling_0"
         },
         {
             "predicate": {
                 "pulling": 1,
-                "pull": 0.65,
-                "custom_model_data": 9005
+                "pull": 0.58,
+                "custom_model_data": 9006
             },
-            "model": "area_9:bow_9005/pulling_1"
+            "model": "area_9:crossbow_9006/pulling_1"
         },
         {
             "predicate": {
                 "pulling": 1,
-                "pull": 0.9,
-                "custom_model_data": 9005
+                "pull": 1.0,
+                "custom_model_data": 9006
             },
-            "model": "area_9:bow_9005/pulling_2"
+            "model": "area_9:crossbow_9006/pulling_2"
+        },
+        {
+            "predicate": {
+                "charged": 1,
+                "custom_model_data": 9006
+            },
+            "model": "area_9:crossbow_9006/arrow"
+        },
+        {
+            "predicate": {
+                "charged": 1,
+                "firework": 1,
+                "custom_model_data": 9006
+            },
+            "model": "area_9:crossbow_9006/firework"
         }
     ]
 }
