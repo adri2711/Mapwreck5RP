@@ -1,12 +1,33 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "item/leather_helmet"
+        "layer0": "item/leather_helmet",
+        "layer1": "item/leather_helmet_overlay"
     },
-	"overrides": [
-		{"predicate": {"custom_model_data": 11001}, "model": "area_11:mist_halo"},
-		{"predicate": {"custom_model_data": 11002}, "model": "area_11:light_halo"},
-		{"predicate": {"custom_model_data": 11003}, "model": "area_11:roses_tinted_glasses"},
-		{"predicate": {"custom_model_data": 2147483647}, "model": "end:dummy/foo_bar"}
-	]
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 11001
+            },
+            "model": "area_11:mist_halo"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 11002
+            },
+            "model": "area_11:light_halo"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 11003
+            },
+            "model": "area_11:roses_tinted_glasses"
+        },
+        {
+            "predicate": {
+                "custom_model_data": 2147483647
+            },
+            "model": "end:dummy/foo_bar"
+        }
+    ]
 }
