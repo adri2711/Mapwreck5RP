@@ -1,3 +1,6 @@
+#ifndef GUARD_NOISE
+#define GUARD_NOISE
+
 //
 //	Code repository for GPU noise development blog
 //	http://briansharpe.wordpress.com
@@ -1389,7 +1392,7 @@ float SimplexPerlin2D( vec2 P )
 
     //	Normalization factor to scale the final result to a strict 1.0->-1.0 range
     //	x = ( sqrt( 0.5 )/sqrt( 0.75 ) ) * 0.5
-    //	NF = 1.0 / ( x * ( ( 0.5 – x*x ) ^ 4 ) * 2.0 )
+    //	NF = 1.0 / ( x * ( ( 0.5 ï¿½ x*x ) ^ 4 ) * 2.0 )
     //	http://briansharpe.wordpress.com/2012/01/13/simplex-noise/#comment-36
     const float FINAL_NORMALIZATION = 99.204334582718712976990005025589;
 
@@ -1590,7 +1593,7 @@ float SimplexPerlin3D(vec3 P)
 
     //	Normalization factor to scale the final result to a strict 1.0->-1.0 range
     //	x = sqrt( 0.75 ) * 0.5
-    //	NF = 1.0 / ( x * ( ( 0.5 – x*x ) ^ 3 ) * 2.0 )
+    //	NF = 1.0 / ( x * ( ( 0.5 ï¿½ x*x ) ^ 3 ) * 2.0 )
     //	http://briansharpe.wordpress.com/2012/01/13/simplex-noise/#comment-36
     const float FINAL_NORMALIZATION = 37.837227241611314102871574478976;
 
@@ -2513,3 +2516,5 @@ vec4 Hermite3D_Deriv( vec3 P )
     //	normalize and return results! :)
     return vec4( finalpos, deriv_x, deriv_y, deriv_z ) * FINAL_NORM_VAL;
 }
+
+#endif

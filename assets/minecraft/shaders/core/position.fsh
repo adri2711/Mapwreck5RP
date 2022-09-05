@@ -23,7 +23,7 @@ const vec3 h1_color = vec3(1.0, 0.0, 0.8);
 const vec3 h2_color = vec3(1.0, 0.7, 0.0);
 
 vec3 warp(vec3 v) {
-    vec3 h_color = h1_color * abs(v.x) + h2_color * noise(v.y);
+    vec3 h_color = h1_color * abs(v.x) + h2_color * noise1D(v.y);
 
     float base_noise = epic_noise(v.xz * 4.0);
     float base = pow(base_noise * v.y, 2.0);

@@ -1,4 +1,5 @@
-#version 150
+#ifndef GUARD_FOG
+#define GUARD_FOG
 
 #moj_import <gpu_noise_lib.glsl>
 
@@ -66,3 +67,5 @@ float fog_distance(mat4 modelViewMat, vec3 pos, int shape) {
         return max(distXZ, distY);
     }
 }
+
+#endif

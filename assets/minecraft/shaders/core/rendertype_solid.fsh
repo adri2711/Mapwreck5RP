@@ -1,7 +1,6 @@
 #version 150
 
 #moj_import <fog.glsl>
-#moj_import <misc.glsl>
 #moj_import <gpu_noise_lib.glsl>
 
 uniform sampler2D Sampler0;

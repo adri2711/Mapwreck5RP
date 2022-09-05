@@ -1,14 +1,23 @@
+#ifndef GUARD_MISC
+#define GUARD_MISC
+
 const int NUM_OCTAVES = 4;
+
+#moj_import <gpu_noise_lib.glsl>
+
+float waterNoise(vec2 p, float GameTime) {
+    float time = GameTime * 3500;
+    float h = 0.0;
+    h += 0.35 * sin(dot(vec2( 0.0, 1.0), p) * 0.5 + 5.0 * SimplexPerlin2D(p * 0.1)+ time * 0.50); 
+    h += 0.45 * sin(dot(vec2(-1.4, 0.8), p) * 0.1 + 5.0 * SimplexPerlin2D(p * 0.5)+ time * 0.45); 
+    return h;
+}
 
 float hash(float n) {
     return fract(sin(n) * 2711.01);
 }
 
-float hash(vec2 p) {
-    return fract(1e4 * sin(17.0 * p.x + p.y * 0.1) * (0.1 + abs(sin(p.y * 13.0 + p.x))));
-}
-
-float noise(float x) {
+float noise1D(float x) {
     float i = floor(x);
     float f = fract(x);
     float u = f * f * (3.0 - 2.0 * f);
@@ -16,7 +25,11 @@ float noise(float x) {
     return mix(hash(i), hash(i + 1.0), u);
 }
 
-float noise(vec2 x) {
+float hash(vec2 p) {
+    return fract(1e4 * sin(17.0 * p.x + p.y * 0.1) * (0.1 + abs(sin(p.y * 13.0 + p.x))));
+}
+
+float noise2D(vec2 x) {
     vec2 i = floor(x);
     vec2 f = fract(x);
 
@@ -29,29 +42,6 @@ float noise(vec2 x) {
     return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
 }
 
-float pnoise(vec3 o) {
-    vec3 p = floor(o);
-    vec3 fr = fract(o);
-        
-    float n = p.x + p.y * 57.0 + p.z * 1009.0;
-
-    float a = hash(n +    0.0);
-    float b = hash(n +    1.0);
-    float c = hash(n +   57.0);
-    float d = hash(n +   58.0);
-    float e = hash(n + 1009.0);
-    float f = hash(n + 1010.0);
-    float g = hash(n + 1066.0);
-    float h = hash(n + 1067.0);
-    
-    vec3 t = fr * fr * (3.0 - 2.0 * fr);
-
-    float res1 = a + (b - a) * t.x + (c - a) * t.y + (a - b + d - c) * t.x * t.y;
-    float res2 = e + (f - e) * t.x + (g - e) * t.y + (e - f + h - g) * t.x * t.y;
-    
-    return mix(res1, res2, t.z);
-}
-
 float epic_noise(vec2 x) {
     float v = 0.0;
     float a = 0.5;
@@ -59,10 +49,12 @@ float epic_noise(vec2 x) {
     mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
 
     for(int i = 0; i < NUM_OCTAVES; ++i) {
-        v += a * noise(x);
+        v += a * noise2D(x);
         x = rot * x * 2.0 + shift;
         a *= 0.5;
     }
 
     return v;
 }
+
+#endif
