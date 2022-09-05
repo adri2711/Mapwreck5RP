@@ -23,7 +23,7 @@ const vec3 h1_color = vec3(1.0, 0.0, 0.8);
 const vec3 h2_color = vec3(1.0, 0.7, 0.0);
 
 vec3 warp(vec3 v) {
-    vec3 h_color = h1_color * abs(v.x) + h2_color * noise(v.y);
+    vec3 h_color = h1_color * abs(v.x) + h2_color * noise1D(v.y);
 
     float base_noise = epic_noise(v.xz * 4.0);
     float base = pow(base_noise * v.y, 2.0);
@@ -40,5 +40,9 @@ void main() {
     vec3 v = normalize(cast_pos.xyz * mat3(ModelViewMat));
     v -= sin(GameTime * 60.0) * vec3((SimplexPerlin3D(v * 2.5) + 1.0) / 2.0) * 0.5;
 
-    fragColor = vec4(warp(v), 1.0);
+    float red_area = distance(FogColor, vec4(4, 8, 13, 255) / 255) / 0.012;
+    red_area = 1.0 - clamp(red_area, 0.0, 1.0);
+
+    fragColor = vec4(0.15, 0.39, 0.39, 1) * red_area;
+    fragColor += vec4(warp(v), 1.0);
 }

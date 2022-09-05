@@ -4,6 +4,7 @@
 	   "layer0":"item/leather_chestplate"
 	},
 	"overrides":[
-		{ "predicate":{ "custom_model_data": 99002 }, "model":"cooley:99002" }
+		{ "predicate":{ "custom_model_data": 99002 }, "model":"cooley:99002" },
+		{ "predicate":{ "custom_model_data": 55001 }, "model":"suso:grave" }
 	]
  }

@@ -27,14 +27,6 @@ flat out int muddy;
 out vec3 BPos;
 out vec3 CPos;
 
-float waterNoise(vec2 p) {
-    float time = GameTime * 3500;
-    float h = 0.0;
-    h += 0.35 * sin(dot(vec2( 0.0, 1.0), p) * 0.5 + 5.0 * noise(p * 0.1)+ time * 0.50); 
-    h += 0.45 * sin(dot(vec2(-1.4, 0.8), p) * 0.1 + 5.0 * noise(p * 0.5)+ time * 0.45); 
-    return h;
-}
-
 void main() {
     vec3 pos = Position + ChunkOffset;
 
@@ -52,7 +44,7 @@ void main() {
         float x_dist = min(distance(BPos.z, 0.0), distance(BPos.z, 16.0)) / 8.0;
         float z_dist = min(distance(BPos.x, 0.0), distance(BPos.x, 16.0)) / 8.0;
 
-        float water_noise = waterNoise(BPos.xz);
+        float water_noise = waterNoise(BPos.xz, GameTime);
         water_noise = water_noise * x_dist * z_dist;
 
         pos.y += water_noise * 0.15;
