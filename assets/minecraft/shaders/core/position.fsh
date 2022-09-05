@@ -40,5 +40,9 @@ void main() {
     vec3 v = normalize(cast_pos.xyz * mat3(ModelViewMat));
     v -= sin(GameTime * 60.0) * vec3((SimplexPerlin3D(v * 2.5) + 1.0) / 2.0) * 0.5;
 
-    fragColor = vec4(warp(v), 1.0);
+    float red_area = distance(FogColor, vec4(4, 8, 13, 255) / 255) / 0.012;
+    red_area = 1.0 - clamp(red_area, 0.0, 1.0);
+
+    fragColor = vec4(0.15, 0.39, 0.39, 1) * red_area;
+    fragColor += vec4(warp(v), 1.0);
 }
