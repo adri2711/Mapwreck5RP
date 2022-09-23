@@ -57,4 +57,18 @@ float epic_noise(vec2 x) {
     return v;
 }
 
+vec4 fromInt(int n) {
+    vec4 r;
+    r.r = float(n % 256) / 255.0; n /= 256;
+    r.g = float(n % 256) / 255.0; n /= 256;
+    r.b = float(n % 256) / 255.0;
+    r.a = 1.0;
+    return r;
+}
+
+vec4 fromTime(float GameTime) {
+    int t = int(GameTime * 1200000.0);
+    return fromInt(t);
+}
+
 #endif

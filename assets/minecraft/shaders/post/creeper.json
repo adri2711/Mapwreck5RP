@@ -1,0 +1,22 @@
+{
+    "targets": [
+        "swap"
+    ],
+    "passes": [
+        {
+            "name": "intro",
+            "intarget": "minecraft:main",
+            "outtarget": "swap",
+            "auxtargets": [
+                {"name": "SpriteSampler", "id": "intro", "width": 0, "height": 0, "bilinear": false},
+                {"name": "CreditSampler", "id": "credits", "width": 0, "height": 0, "bilinear": false},
+                {"name": "ShiftSampler", "id": "shift", "width": 0, "height": 0, "bilinear": false}
+            ]
+        },
+        {
+            "name": "c",
+            "intarget": "swap",
+            "outtarget": "minecraft:main"
+        }
+    ]
+}
