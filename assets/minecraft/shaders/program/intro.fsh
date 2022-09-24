@@ -13,7 +13,7 @@ out vec4 fragColor;
 vec4 overlay = vec4(0.0);
 
 // Imports don't work on post shaders for some insane reason so I must suffer
-float aastep(float threshold, float value, float chaos = 1.0) {
+float aastep(float threshold, float value, float chaos) {
     float afwidth = 0.7 * length(vec2(dFdx(value) * chaos, dFdy(value) * chaos));
     return smoothstep(threshold - afwidth, threshold + afwidth, value);
 }

@@ -44,7 +44,7 @@ void main() {
     customID = 0;
 
     // Grave
-    if(texture2D(Sampler0, UV0).a == 2.0 / 255.0) {
+    if(texture(Sampler0, UV0).a == 2.0 / 255.0) {
         customID = 1;
         gl_Position.z = -0.3;
         switch(gl_VertexID % 4) {
@@ -57,7 +57,7 @@ void main() {
         graveColor = Color.rgb;
     }
     // Menu time
-    else if(texture2D(Sampler0, UV0).a == 3.0 / 255.0) {
+    else if(texture(Sampler0, UV0).a == 3.0 / 255.0) {
         customID = 2;
         switch(gl_VertexID % 4) {
             case 0: gl_Position = vec4(-1.0, 1.0, 0.0, 1.0); relCoord = vec2(0.0,1.0); break;
