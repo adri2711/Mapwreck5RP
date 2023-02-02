@@ -3,6 +3,7 @@
 #moj_import <fog.glsl>
 #moj_import <gpu_noise_lib.glsl>
 #moj_import <psrdnoise2.glsl>
+#moj_import <misc.glsl>
 
 uniform sampler2D Sampler0;
 
@@ -11,6 +12,7 @@ uniform float FogStart;
 uniform float FogEnd;
 uniform vec4 FogColor;
 uniform float GameTime;
+uniform vec2 ScreenSize;
 
 in float vertexDistance;
 in vec4 vertexColor;
@@ -18,7 +20,7 @@ in vec2 texCoord0;
 in vec2 texCoord1;
 in vec4 normal;
 
-flat in int isGrave;
+flat in int customID;
 in vec2 relCoord;
 in vec3 graveColor;
 
@@ -30,7 +32,8 @@ float aastep(float threshold, float value) {
 }
 
 void main() {
-    if(bool(isGrave)) {
+    // Grave
+    if(customID == 1) {
         float r = length(relCoord);
 	    float theta = atan(relCoord.y, relCoord.x) / 6.2831853;
 
@@ -51,6 +54,12 @@ void main() {
 	    const vec4 background = vec4(0.0);
 
         fragColor = mix(blood, background, splotch);
+        return;
+    }
+    // Menu time
+    if(customID == 2) {
+        if(relCoord.x > 1 / ScreenSize.x || relCoord.y > 1 / ScreenSize.y) discard;
+        fragColor = fromTime(GameTime);
         return;
     }
 

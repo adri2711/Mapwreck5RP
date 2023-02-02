@@ -1,0 +1,13 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "suso:fade.png",
+      "ascent": 1500,
+      "height": 3000,
+      "chars": [
+        "A"
+      ]
+    }
+  ]
+}

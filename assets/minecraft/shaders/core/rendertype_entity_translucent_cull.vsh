@@ -28,7 +28,7 @@ out vec2 texCoord1;
 out vec2 texCoord2;
 out vec4 normal;
 
-flat out int isGrave;
+flat out int customID;
 out vec2 relCoord;
 out vec3 graveColor;
 
@@ -41,9 +41,11 @@ void main() {
     texCoord1 = UV1;
     texCoord2 = UV2;
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
+    customID = 0;
 
-    isGrave = int(texture2D(Sampler0, UV0).a == 2.0 / 255.0);
-    if(bool(isGrave)) {
+    // Grave
+    if(texture(Sampler0, UV0).a == 2.0 / 255.0) {
+        customID = 1;
         gl_Position.z = -0.3;
         switch(gl_VertexID % 4) {
             case 0: relCoord = vec2(-1.0, 1.0); break;
@@ -53,5 +55,15 @@ void main() {
         }
         
         graveColor = Color.rgb;
+    }
+    // Menu time
+    else if(texture(Sampler0, UV0).a == 3.0 / 255.0) {
+        customID = 2;
+        switch(gl_VertexID % 4) {
+            case 0: gl_Position = vec4(-1.0, 1.0, 0.0, 1.0); relCoord = vec2(0.0,1.0); break;
+            case 1: gl_Position = vec4(-1.0,-1.0, 0.0, 1.0); relCoord = vec2(0.0,0.0); break;
+            case 2: gl_Position = vec4( 1.0,-1.0, 0.0, 1.0); relCoord = vec2(1.0,0.0); break;
+            case 3: gl_Position = vec4( 1.0, 1.0, 0.0, 1.0); relCoord = vec2(1.0,1.0); break;
+        }
     }
 }

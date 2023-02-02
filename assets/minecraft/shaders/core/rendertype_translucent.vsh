@@ -26,6 +26,7 @@ out vec4 normal;
 flat out int muddy;
 out vec3 BPos;
 out vec3 CPos;
+noperspective out vec3 customPos;
 
 void main() {
     vec3 pos = Position + ChunkOffset;
@@ -51,4 +52,5 @@ void main() {
     }
 
     gl_Position = ProjMat * ModelViewMat * vec4(pos, 1.0);
+    customPos = BPos + CPos;
 }
